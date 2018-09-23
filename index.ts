@@ -12,7 +12,6 @@ const conversationId = process.env.CHANNEL_ID || '';
 web.chat
   .postMessage({ channel: conversationId, text: 'Hello there' })
   .then((res: Object) => {
-    // `res` contains information about the posted message
     console.log('Message sent: ', res);
   })
   .catch(console.error);
