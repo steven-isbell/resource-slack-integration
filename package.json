@@ -1,0 +1,9 @@
+{
+  "name": "resources-slack-app",
+  "version": "1.0.0",
+  "main": "build/index.js",
+  "license": "MIT",
+  "dependencies": {
+    "@types/node": "^10.10.3"
+  }
+}
