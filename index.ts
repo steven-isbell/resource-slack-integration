@@ -9,12 +9,16 @@ const web = new WebClient(token);
 
 const conversationId = process.env.CHANNEL_ID || '';
 
-const postResource = () =>
-  web.chat
-    .postMessage({ channel: conversationId, text: 'Hello there' })
-    .then((res: Object) => {
-      console.log('Message sent: ', res);
-    })
-    .catch(console.error);
+const postResource = async () => {
+  try {
+    const res = await web.chat.postMessage({
+      channel: conversationId,
+      text: 'Hello there'
+    });
+    console.log('Message sent: ', res);
+  } catch (e) {
+    console.error(e);
+  }
+};
 
 export default postResource;
