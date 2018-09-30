@@ -1,14 +1,10 @@
-import { WebClient } from '@slack/client';
 import { config } from 'dotenv';
 import axios from 'axios';
 
 config();
 
-const token = process.env.SLACK_TOKEN;
-
-const web = new WebClient(token);
-
 const conversationId = process.env.CHANNEL_ID || '';
+const hook = process.env.HOOK || '';
 
 const fetchResource = async () => {
   try {
@@ -21,14 +17,24 @@ const fetchResource = async () => {
 
 const postResource = async () => {
   try {
-    const res = await web.chat.postMessage({
-      channel: conversationId,
-      text: 'Hello World'
+    const res = await axios.post(hook, {
+      attachments: [
+        {
+          fallback: "Today's Resource",
+          color: '#2eb886',
+          pretext: "Check out today's resource below!",
+          author_name: 'Todd Motto',
+          title: 'Understanding Scope',
+          title_link:
+            'https://toddmotto.com/everything-you-wanted-to-know-about-javascript-scope/',
+          fields: []
+        }
+      ]
     });
-    console.log('Message sent: ', res);
+    console.log('Message sent: ', res.data);
   } catch (e) {
     console.error(e);
   }
 };
 
-export default postResource;
+postResource();
