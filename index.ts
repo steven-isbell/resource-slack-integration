@@ -3,8 +3,8 @@ import axios from 'axios';
 
 config();
 
-const token = process.env.TOKEN || '';
-const hook = process.env.HOOK || '';
+const token: string = process.env.TOKEN || '';
+const hook: string = process.env.HOOK || '';
 
 const fetchResource = async (topic: string): Promise<string> => {
   try {
