@@ -6,6 +6,8 @@ config();
 const token: string = process.env.TOKEN || '';
 const hook: string = process.env.HOOK || '';
 
+// Need to fetch schedule for each individual cohort
+// and then content for their schedule
 const fetchResource = async (topic: string): Promise<string> => {
   try {
     const res = await axios.get(`/api/path/to/${topic}`);
