@@ -15,7 +15,7 @@ const fetchResource = async (topic: string): Promise<String> => {
   }
 };
 
-const postResource = async () => {
+const postResource = async (): Promise<void> => {
   try {
     // Fetch the resource (need to know curriculum topic)
     // Host topics and associated resource in API?
