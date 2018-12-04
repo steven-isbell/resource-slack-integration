@@ -6,9 +6,9 @@ config();
 const conversationId = process.env.CHANNEL_ID || '';
 const hook = process.env.HOOK || '';
 
-const fetchResource = async () => {
+const fetchResource = async (topic: string): Promise<String> => {
   try {
-    const res = await axios.get('/api/path/to/resource');
+    const res = await axios.get(`/api/path/to/${topic}`);
     return res.data;
   } catch (e) {
     throw new Error('Failed to Fetch Resource');
@@ -17,6 +17,9 @@ const fetchResource = async () => {
 
 const postResource = async () => {
   try {
+    // Fetch the resource (need to know curriculum topic)
+    // Host topics and associated resource in API?
+    // const resource = await fetchResource('topic');
     const res = await axios.post(hook, {
       attachments: [
         {
