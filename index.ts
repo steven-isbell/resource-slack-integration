@@ -1,5 +1,6 @@
 import { config } from 'dotenv';
 import axios from 'axios';
+import { CronJob } from 'cron';
 
 config();
 
@@ -8,6 +9,10 @@ const hook: string = process.env.HOOK || '';
 
 // Need to fetch schedule for each individual cohort
 // and then content for their schedule
+const fetchSchedule = async (cohort: string): Promise<Date> => {
+  return new Date();
+};
+
 const fetchResource = async (topic: string): Promise<string> => {
   try {
     const res = await axios.get(`/api/path/to/${topic}`);
