@@ -6,7 +6,7 @@ config();
 const token = process.env.TOKEN || '';
 const hook = process.env.HOOK || '';
 
-const fetchResource = async (topic: string): Promise<String> => {
+const fetchResource = async (topic: string): Promise<string> => {
   try {
     const res = await axios.get(`/api/path/to/${topic}`);
     return res.data;
