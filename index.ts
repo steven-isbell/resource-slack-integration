@@ -7,6 +7,8 @@ config();
 const token: string = process.env.TOKEN || '';
 const hook: string = process.env.HOOK || '';
 
+const fetchCohorts = () => {};
+
 // Need to fetch schedule for each individual cohort
 // and then content for their schedule
 const fetchSchedule = async (cohort: string): Promise<Date> => {
