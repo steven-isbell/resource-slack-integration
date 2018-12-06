@@ -11,6 +11,7 @@ const fetchCohorts = () => {};
 
 // Need to fetch schedule for each individual cohort
 // and then content for their schedule
+// Node PG to connect ot prod db
 const fetchSchedule = async (cohort: string): Promise<Date> => {
   return new Date();
 };
