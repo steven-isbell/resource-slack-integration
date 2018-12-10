@@ -5,16 +5,22 @@ dotenv.config();
 
 import query from './db/query';
 import select_active_cohorts from './db/queries/select_active_cohorts';
+import buildSlackName from './utils/buildSlackName';
+import Cohort from './types/Cohort';
 
 const token: string = process.env.TOKEN || '';
 const hook: string = process.env.HOOK || '';
 
-const fetchCohorts = async () => {
+const fetchCohorts = async (): Promise<Cohort[]> => {
   try {
-    const cohorts = await query(select_active_cohorts);
-    console.log('cohorts: ', cohorts);
+    const { rows: cohorts }: { rows: Cohort[] } = await query(
+      select_active_cohorts
+    );
+    const formattedCohorts = buildSlackName(cohorts);
+    return formattedCohorts;
   } catch (e) {
     console.error(`Error while fetching cohorts: ${e}`);
+    return e;
   }
 };
 
