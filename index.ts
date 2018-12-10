@@ -1,8 +1,11 @@
-import { config } from 'dotenv';
+import dotenv from 'dotenv';
 import axios from 'axios';
-import { CronJob } from 'cron';
+import query from './db/query';
+import cron from 'cron';
 
-config();
+const { CronJob } = cron;
+
+dotenv.config();
 
 const token: string = process.env.TOKEN || '';
 const hook: string = process.env.HOOK || '';
