@@ -14,7 +14,7 @@ const query = async (text: string, params?: any | any[]) => {
   try {
     return await pool.query(text, params);
   } catch (e) {
-    console.log('QUERY ERROR: ', e);
+    throw e;
   } finally {
     client.release();
   }

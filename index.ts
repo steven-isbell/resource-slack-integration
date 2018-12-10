@@ -1,11 +1,10 @@
-import axios from 'axios';
 import dotenv from 'dotenv';
+dotenv.config();
+import axios from 'axios';
 import query from './db/query';
 import cron from 'cron';
 
 const { CronJob } = cron;
-
-dotenv.config();
 
 const token: string = process.env.TOKEN || '';
 const hook: string = process.env.HOOK || '';
@@ -13,16 +12,18 @@ const hook: string = process.env.HOOK || '';
 const fetchCohorts = async () => {
   try {
     const cohorts = await query('SELECT * FROM classsession');
-    console.log(cohorts);
+    console.log('cohorts: ', cohorts);
   } catch (e) {
     console.error(`Error while fetching cohorts: ${e}`);
   }
 };
 
+fetchCohorts();
+
 // Need to fetch schedule for each individual cohort
 // and then content for their schedule
 // Node PG to connect ot prod db
-const fetchSchedule = async (cohort: string): Promise<Date> => {
+const parseSchedule = async (cohort: string): Promise<Date> => {
   return new Date();
 };
 
@@ -38,7 +39,6 @@ const fetchResource = async (topic: string): Promise<string> => {
 const postResource = async (): Promise<void> => {
   try {
     // Fetch the resource (need to know curriculum topic)
-    // Host topics and associated resource in API?
     // const resource = await fetchResource('topic');
     const res = await axios.post(
       hook,
