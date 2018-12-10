@@ -3,10 +3,10 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-import query from './db/query';
-import select_active_cohorts from './db/queries/select_active_cohorts';
 import buildSlackName from './utils/buildSlackName';
 import Cohort from './types/Cohort';
+import query from './db/query';
+import select_active_cohorts from './db/queries/select_active_cohorts';
 
 const token: string = process.env.TOKEN || '';
 const hook: string = process.env.HOOK || '';
