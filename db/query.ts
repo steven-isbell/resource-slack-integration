@@ -9,7 +9,7 @@ pool.on('error', err => {
   process.exit(-1);
 });
 
-const query = async (text: string, params: any | any[]) => {
+const query = async (text: string, params?: any | any[]) => {
   const client = await pool.connect();
   try {
     return await pool.query(text, params);

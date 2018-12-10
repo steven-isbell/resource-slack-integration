@@ -1,5 +1,5 @@
-import dotenv from 'dotenv';
 import axios from 'axios';
+import dotenv from 'dotenv';
 import query from './db/query';
 import cron from 'cron';
 
@@ -10,7 +10,14 @@ dotenv.config();
 const token: string = process.env.TOKEN || '';
 const hook: string = process.env.HOOK || '';
 
-const fetchCohorts = () => {};
+const fetchCohorts = async () => {
+  try {
+    const cohorts = await query('SELECT * FROM classsession');
+    console.log(cohorts);
+  } catch (e) {
+    console.error(`Error while fetching cohorts: ${e}`);
+  }
+};
 
 // Need to fetch schedule for each individual cohort
 // and then content for their schedule
@@ -62,4 +69,4 @@ const postResource = async (): Promise<void> => {
   }
 };
 
-postResource();
+// postResource();
