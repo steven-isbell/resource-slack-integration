@@ -1,17 +1,17 @@
-import dotenv from 'dotenv';
-dotenv.config();
 import axios from 'axios';
-import query from './db/query';
-import cron from 'cron';
+import dotenv from 'dotenv';
 
-const { CronJob } = cron;
+dotenv.config();
+
+import query from './db/query';
+import select_active_cohorts from './db/queries/select_active_cohorts';
 
 const token: string = process.env.TOKEN || '';
 const hook: string = process.env.HOOK || '';
 
 const fetchCohorts = async () => {
   try {
-    const cohorts = await query('SELECT * FROM classsession');
+    const cohorts = await query(select_active_cohorts);
     console.log('cohorts: ', cohorts);
   } catch (e) {
     console.error(`Error while fetching cohorts: ${e}`);
