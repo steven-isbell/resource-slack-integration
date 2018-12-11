@@ -3,32 +3,11 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-import buildSlackName from './utils/buildSlackName';
-import Cohort from './types/Cohort';
-import query from './db/query';
-import select_active_cohorts from './db/queries/select_active_cohorts';
+import fetchCohorts from './utils/fetchCohorts';
 
 const token: string = process.env.TOKEN || '';
 const hook: string = process.env.HOOK || '';
 
-const fetchCohorts = async (): Promise<Cohort[]> => {
-  try {
-    const { rows: cohorts }: { rows: Cohort[] } = await query(
-      select_active_cohorts
-    );
-    const formattedCohorts = buildSlackName(cohorts);
-    return formattedCohorts;
-  } catch (e) {
-    console.error(`Error while fetching cohorts: ${e}`);
-    return e;
-  }
-};
-
-fetchCohorts();
-
-// Need to fetch schedule for each individual cohort
-// and then content for their schedule
-// Node PG to connect ot prod db
 const parseSchedule = async (cohort: string): Promise<Date> => {
   return new Date();
 };
