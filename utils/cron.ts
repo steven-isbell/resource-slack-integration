@@ -1,4 +1,5 @@
 import cron from 'cron';
+import fetchCohorts from './fetchCohorts';
 
 const { CronJob } = cron;
 
