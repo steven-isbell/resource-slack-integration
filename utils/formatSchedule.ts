@@ -3,13 +3,17 @@ import daysBetween from './daysBetween';
 
 const formatSchedule = (cohorts: Cohort[]): any[] => {
   const formattedWithDays: Cohort[] = cohorts.map((cohort: Cohort) => {
+    const numberOfDays: number = daysBetween(cohort.date_start, new Date());
+    const scheduleWeek: number = Math.floor(numberOfDays / 7);
+    const scheduleDay: number = Math.ceil(((numberOfDays / 7) % 1) / 0.14);
     return {
       ...cohort,
-      numberOfDays: daysBetween(cohort.date_start, cohort.date_end)
+      scheduleWeek,
+      scheduleDay
     };
   });
-
-  //   return formattedWithDays;
+  console.log(formattedWithDays);
+  return formattedWithDays;
 };
 
 export default formatSchedule;

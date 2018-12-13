@@ -1,10 +1,9 @@
-import axios from 'axios';
+// const fetchResource = (cohort: string, day: number): object => {
+//   try {
+//     return;
+//   } catch (e) {
+//     throw new Error('Failed to Fetch Resource');
+//   }
+// };
 
-const fetchResource = async (topic: string): Promise<string> => {
-  try {
-    const res = await axios.get(`/api/path/to/${topic}`);
-    return res.data;
-  } catch (e) {
-    throw new Error('Failed to Fetch Resource');
-  }
-};
+// export default fetchResource;
