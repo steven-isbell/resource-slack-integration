@@ -9,7 +9,10 @@ const fetchCohorts = async (): Promise<Cohort[]> => {
     const { rows: cohorts }: { rows: Cohort[] } = await query(
       select_active_cohorts
     );
-    const formattedCohorts = buildSlackName(cohorts);
+    const nonAsync: Cohort[] = cohorts.filter(
+      (cohort: Cohort) => cohort.short_name !== 'WPRAsync'
+    );
+    const formattedCohorts = buildSlackName(nonAsync);
     formatSchedule(formattedCohorts);
     return formattedCohorts;
   } catch (e) {
