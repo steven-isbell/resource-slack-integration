@@ -3,6 +3,8 @@ import fetchCohorts from './fetchCohorts';
 
 const { CronJob } = cron;
 
-const job = new CronJob('00 30 14 * * 1-5', () => {});
+const job = new CronJob('00 30 14 * * 1-5', () => {
+  fetchCohorts();
+});
 
 export default job;
