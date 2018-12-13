@@ -3,15 +3,16 @@ import axios from 'axios';
 const token: string = process.env.TOKEN || '';
 const hook: string = process.env.HOOK || '';
 
-const postResource = async (): Promise<void> => {
+const postResource = async (
+  channel: string,
+  resource: string
+): Promise<void> => {
   try {
-    // Fetch the resource (need to know curriculum topic)
-    // const resource = await fetchResource('topic');
     const res = await axios.post(
       hook,
       {
         text: 'hello hoomans',
-        channel: 'wdl-mentors'
+        channel
       },
       { headers: { Authorization: `Bearer ${token}` } }
     );
@@ -35,3 +36,5 @@ const postResource = async (): Promise<void> => {
     console.error(e);
   }
 };
+
+export default postResource;
