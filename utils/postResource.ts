@@ -13,6 +13,7 @@ const postResource = async (
     const res = await axios.post(
       hook,
       {
+        // Send all the fetchedResources for the day
         attachments: [...resources],
         channel
       },
