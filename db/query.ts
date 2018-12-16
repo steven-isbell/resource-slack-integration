@@ -1,16 +1,19 @@
-import pg from 'pg';
+import { Pool, QueryResult, PoolClient } from 'pg';
 
-const { Pool } = pg;
+const pool: Pool = new Pool({
+  connectionString: process.env.CONNECTION_STRING
+});
 
-const pool = new Pool({ connectionString: process.env.CONNECTION_STRING });
-
-pool.on('error', err => {
+pool.on('error', (err: Error) => {
   console.error('Error in Client: ', err);
   process.exit(-1);
 });
 
-const query = async (text: string, params?: any | any[]) => {
-  const client = await pool.connect();
+const query = async (
+  text: string,
+  params?: any | any[]
+): Promise<QueryResult> => {
+  const client: PoolClient = await pool.connect();
   try {
     return await pool.query(text, params);
   } catch (e) {
