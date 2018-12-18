@@ -9,6 +9,9 @@ const postResource = async (
   channel: string,
   resources: Resource[]
 ): Promise<void> => {
+  if (!token || !hook) {
+    throw new Error('.env not configured. Please add a .env file.');
+  }
   try {
     const res = await axios.post(
       hook,
