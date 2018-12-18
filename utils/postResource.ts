@@ -3,7 +3,7 @@ import axios from 'axios';
 import Resource from '../types/Resource';
 
 const token: string | undefined = process.env.TOKEN;
-const hook: string | undefined = process.env.HOOK || '';
+const hook: string | undefined = process.env.HOOK;
 
 const postResource = async (
   channel: string,
