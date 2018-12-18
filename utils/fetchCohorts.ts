@@ -1,8 +1,8 @@
 import buildSlackName from './buildSlackName';
 import Cohort from '../types/Cohort';
+import formatSchedule from './formatSchedule';
 import query from '../db/query';
 import select_active_cohorts from '../db/queries/select_active_cohorts';
-import formatSchedule from './formatSchedule';
 
 const fetchCohorts = async (): Promise<Cohort[]> => {
   try {
