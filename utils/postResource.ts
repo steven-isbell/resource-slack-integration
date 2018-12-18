@@ -20,8 +20,10 @@ const postResource = async (
       { headers: { Authorization: `Bearer ${token}` } }
     );
     console.log('Message sent: ', res.data);
+    return res.data;
   } catch (e) {
     console.error(e);
+    return e;
   }
 };
 
