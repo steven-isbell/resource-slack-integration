@@ -56,7 +56,9 @@ provider:
 
 functions:
   fetchCohorts:
-    handler: lib/index.fetchCohorts
+    handler: lib/index.handleResource
+    events:
+      - schedule: cron(30 13 * * 1-5)
 #    The following are a few example events you can configure
 #    NOTE: Please make sure to change your handler code to work with those events
 #    Check the event documentation for details
