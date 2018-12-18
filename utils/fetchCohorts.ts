@@ -4,7 +4,7 @@ import formatSchedule from './formatSchedule';
 import query from '../db/query';
 import select_active_cohorts from '../db/queries/select_active_cohorts';
 
-const fetchCohorts = async (): Promise<Cohort[]> => {
+const fetchCohorts = async (): Promise<void> => {
   try {
     const { rows: cohorts }: { rows: Cohort[] } = await query(
       select_active_cohorts
@@ -13,8 +13,7 @@ const fetchCohorts = async (): Promise<Cohort[]> => {
       (cohort: Cohort) => cohort.short_name !== 'WPRAsync'
     );
     const formattedCohorts = buildSlackName(nonAsync);
-    formatSchedule(formattedCohorts);
-    return formattedCohorts;
+    return formatSchedule(formattedCohorts);
   } catch (e) {
     console.error(`Error while fetching cohorts: ${e}`);
     return e;

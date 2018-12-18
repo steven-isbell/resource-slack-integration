@@ -1,6 +1,6 @@
-import dotenv from 'dotenv';
+import { config } from 'dotenv';
 
-dotenv.config();
+config();
 
 import fetchCohorts from './utils/fetchCohorts';
 
