@@ -17,9 +17,16 @@ service: resource-slack-service
 # Check out our docs for more details
 # frameworkVersion: "=X.X.X"
 
+custom:
+  secrets: ${file(secrets.json)}
+
 provider:
   name: aws
   runtime: nodejs8.10
+  environment:
+    TOKEN: ${self:custom.secrets.token} # Stripe secret API key
+    HOOK: ${self:custom.secrets.hook}
+    CONNECTION_STRING: ${self:custom.secrets.connectionString}
 
 # you can overwrite defaults here
 #  stage: dev
