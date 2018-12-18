@@ -11,7 +11,7 @@
 #
 # Happy Coding!
 
-service: slack-service # NOTE: update this with your service name
+service: resource-slack-service
 
 # You can pin your service to only deploy with a specific Serverless version
 # Check out our docs for more details
@@ -58,7 +58,7 @@ functions:
   handleResource:
     handler: lib/index.handleResource
     events:
-      - schedule: cron(30 13 * * 1-5)
+      - schedule: cron(30 13 * * 1-5) # Run every day at 1:30 PM
 #    The following are a few example events you can configure
 #    NOTE: Please make sure to change your handler code to work with those events
 #    Check the event documentation for details
