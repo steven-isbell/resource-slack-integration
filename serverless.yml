@@ -55,7 +55,7 @@ provider:
 #    - exclude-me-dir/**
 
 functions:
-  fetchCohorts:
+  handleResource:
     handler: lib/index.handleResource
     events:
       - schedule: cron(30 13 * * 1-5)
