@@ -23,6 +23,7 @@ custom:
 provider:
   name: aws
   runtime: nodejs8.10
+  region: us-west-1
   environment:
     TOKEN: ${self:custom.secrets.token} # Stripe secret API key
     HOOK: ${self:custom.secrets.hook}
@@ -30,7 +31,6 @@ provider:
 
 # you can overwrite defaults here
 #  stage: dev
- region: us-west-1
 
 # you can add statements to the Lambda function's IAM Role here
 #  iamRoleStatements:
