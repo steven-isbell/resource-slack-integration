@@ -9,7 +9,7 @@ const fetchResource = (
 ): void => {
   const resourceList: Resource[] = (<any>resources)[week][day];
   if (resourceList.length) {
-    console.log('Posting Resources');
+    console.log('Posting Resources', resourceList);
     postResource(cohort, resourceList);
   }
   console.log('No Resources To Post');
