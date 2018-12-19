@@ -25,9 +25,9 @@ provider:
   runtime: nodejs8.10
   region: us-west-1
   environment:
-    TOKEN: ${self:custom.secrets.token} # Stripe secret API key
-    HOOK: ${self:custom.secrets.hook}
-    CONNECTION_STRING: ${self:custom.secrets.connectionString}
+    TOKEN: ${self:custom.secrets.token} # Slack API Token
+    HOOK: ${self:custom.secrets.hook} # Slack API endpoint
+    CONNECTION_STRING: ${self:custom.secrets.connectionString} # DB Connection String
 
 # you can overwrite defaults here
 #  stage: dev
