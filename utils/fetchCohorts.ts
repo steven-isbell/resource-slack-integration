@@ -13,6 +13,7 @@ const fetchCohorts = async (): Promise<void> => {
       (cohort: Cohort) => cohort.short_name !== 'WPRAsync'
     );
     const formattedCohorts = buildSlackName(nonAsync);
+    console.log('Formatting Schedule');
     return formatSchedule(formattedCohorts);
   } catch (e) {
     console.error(`Error while fetching cohorts: ${e}`);
