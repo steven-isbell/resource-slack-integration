@@ -6,6 +6,7 @@ import select_active_cohorts from '../db/queries/select_active_cohorts';
 
 const fetchCohorts = async (): Promise<void> => {
   try {
+    console.log('Fetching Cohorts');
     const { rows: cohorts }: { rows: Cohort[] } = await query(
       select_active_cohorts
     );
