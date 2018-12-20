@@ -6,10 +6,6 @@ index.js
 node_modules
 jspm_packages
 
-# Serverless directories
-.serverless
-secrets.json
-
 #tsc
 lib/
 
