@@ -18,7 +18,8 @@ const postResource = async (
       {
         // Send all the fetchedResources for the day
         attachments: [...resources],
-        channel
+        channel,
+        text: 'Check out todays resources!'
       },
       { headers: { Authorization: `Bearer ${token}` } }
     );
