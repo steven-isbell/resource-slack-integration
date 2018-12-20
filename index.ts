@@ -5,7 +5,7 @@ config();
 import fetchCohorts from './utils/fetchCohorts';
 
 // Export the function for Lambda
-module.exports.handleResource = (_: any, __: any, callback: Function) => {
+module.exports.generateResource = (_: any, __: any, callback: Function) => {
   try {
     console.log('Fetching Cohorts');
     return fetchCohorts();
