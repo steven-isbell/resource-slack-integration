@@ -33,8 +33,14 @@ const postResource = async (
         return res.data;
       } catch (e) {
         console.error(e);
-        if (e.status === 403 || e.status === '401') {
-          bail(new Error('Bad Token'));
+        if (e.status !== 500) {
+          bail(
+            new Error(
+              `Failed to post with status: ${
+                e.status
+              } && Error: ${JSON.stringify(e)}`
+            )
+          );
         }
         return e;
       }
