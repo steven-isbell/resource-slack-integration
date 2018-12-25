@@ -7,7 +7,6 @@ const fetchResource = (
   week: number,
   day: number
 ): void => {
-  console.log(cohort, week, day);
   const resourceList: Resource[] = (<any>resources)[week][day];
   console.log('resourceList: ', resourceList);
   if (resourceList.length) {
