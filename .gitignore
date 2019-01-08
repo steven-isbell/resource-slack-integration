@@ -12,3 +12,7 @@ lib/
 #etc
 resources.json
 .vscode
+
+#logging
+error.log
+combined.log
