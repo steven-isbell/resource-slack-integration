@@ -27,8 +27,6 @@ if (process.env.NODE_ENV !== 'production') {
   );
 }
 
-// TODO: Add logging
-
 // TODO: Send setup items for the next day along with resources (e.g. Setup heroku account)?
 fetchCohorts();
 
