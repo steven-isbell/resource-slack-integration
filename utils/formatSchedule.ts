@@ -2,6 +2,7 @@ import Cohort from '../types/Cohort';
 import daysBetween from './daysBetween';
 import fetchResource from './fetchResource';
 
+// TODO: Handle holidays
 const formatSchedule = (cohorts: Cohort[]): void => {
   cohorts.forEach((cohort: Cohort) => {
     const numberOfDays: number = daysBetween(cohort.date_start, new Date());

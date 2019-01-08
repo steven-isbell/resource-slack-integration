@@ -32,7 +32,6 @@ const postResource = async (
         console.log('Message sent: ', res.data);
         return res.data;
       } catch (e) {
-        console.error(e);
         if (e.status !== 500) {
           bail(
             new Error(
