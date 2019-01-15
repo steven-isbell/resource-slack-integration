@@ -6,7 +6,8 @@ const buildSlackName = (cohorts: Cohort[]): Cohort[] =>
       if (
         cohort.short_name.startsWith('WPX') ||
         cohort.short_name.startsWith('WPR') ||
-        cohort.short_name.startsWith('WSL')
+        cohort.short_name.startsWith('WSL') ||
+        cohort.short_name.startsWith('WLH')
       ) {
         return { ...cohort, slack_name: cohort.short_name.toLowerCase() };
       } else {
